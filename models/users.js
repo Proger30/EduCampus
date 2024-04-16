@@ -13,10 +13,19 @@ const User = sequelize.define('user', {
 		type: STRING,
 		allowNull: false,
 	},
-	name: {
+	firstName: {
 		type: STRING,
 		allowNull: false,
+	},
+	lastName: {
+		type: STRING,
+		allowNull: false,
+	},
+	patronymic: {
+		type: STRING,
+		allowNull: true,
 	}
+
 })
 
 module.exports = User
