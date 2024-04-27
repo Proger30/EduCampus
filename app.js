@@ -91,8 +91,8 @@ Group.belongsToMany(Task, {through: GroupTask})
 Group.belongsToMany(Quize, {through: GroupQuize})
 
 
-sequelize.sync({force: true})
-// sequelize.sync()
+// sequelize.sync({force: true})
+sequelize.sync()
 	.then(result => {
 		app.listen(3000)
 	})
