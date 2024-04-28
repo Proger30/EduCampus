@@ -20,7 +20,8 @@ const Role = sequelize.define('role', {
 			unique: true,
 			fields: ["userId", "role"]
 		}
-	]
+	],
+	timestamps: false
 }
 )
 

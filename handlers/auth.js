@@ -51,7 +51,7 @@ exports.postLogin = (req, res, next) => {
 	User.findByPk(id)
 	  .then(user => {
 		if (!user) {
-		  	return res.json({
+		  	return res.status(401).json({
 				code: -2,
 				message: "Invalid id or password",
 				data: null,
@@ -60,16 +60,21 @@ exports.postLogin = (req, res, next) => {
 		bcrypt
 		  .compare(password, user.password)
 		  .then(doMatch => {
-			if (doMatch) {
+			  if (doMatch) {
 				const token = jwt.sign({ id: user.id }, process.env.SECRET_KEY, {
-					expiresIn: '1h',
-					});
+					expiresIn: '2400h',
+				});
 				return res.json({
 					code: 0,
 					message: 'Successfuly authorized.',
 					data: {token},
 				});
-			}
+			} 
+			return res.status(401).json({
+				code: -2,
+				message: "Invalid id or password",
+				data: null,
+			});
 		  })
 		  .catch(err => {
 			console.log(err);
