@@ -2,26 +2,23 @@ const { INTEGER } = require("sequelize");
 
 const sequelize = require('../../util/database');
 
-const AcademicPerformance = sequelize.define('academicPerformance', {
+const ModuleGroup = sequelize.define('moduleGroup', {
 	id: {
 		type: INTEGER,
 		autoIncrement: true,
 		allowNull: false,
 		primaryKey: true,
 	},
-	course: {
-		type: INTEGER,
-		allowNull: false,
-	},
 }
 , {
+	timestamps: false,
 	indexes: [
 		{
 			unique: true,
-			fields: ["studentId", "moduleId", "course"]
+			fields: ["groupGroup", "moduleId"]
 		}
 	]
 }
 )
 
-module.exports = AcademicPerformance
+module.exports = ModuleGroup

@@ -3,25 +3,21 @@ const { INTEGER, STRING } = require("sequelize");
 const sequelize = require('../../util/database');
 
 const Group = sequelize.define('group', {
-	id: {
-		type: INTEGER,
-		autoIncrement: true,
-		allowNull: false,
-		primaryKey: true,
-	},
 	group: {
 		type: STRING,
 		allowNull: false,
+		primaryKey: true,
 	}
 }
-// , {
-// 	indexes: [
-// 		{
-// 			unique: true,
-// 			fields: ["userId", "role"]
-// 		}
-// 	]
-// }
+, {
+	timestamps: false,
+	indexes: [
+		{
+			unique: true,
+			fields: ["advisor", "group"]
+		}
+	]
+}
 )
 
 module.exports = Group

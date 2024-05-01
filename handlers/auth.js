@@ -1,7 +1,6 @@
-const User = require('../models/Profile/users');
+const {User, Student} = require('../models/Profile/index');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-
 
 exports.postSignup = (req, res, next) => {
 	const { id, password, firstName, lastName, patronymic, confirmPassword } = req.body

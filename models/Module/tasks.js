@@ -1,4 +1,4 @@
-const { INTEGER, STRING } = require("sequelize");
+const { INTEGER, STRING, TEXT } = require("sequelize");
 
 const sequelize = require('../../util/database');
 
@@ -14,7 +14,7 @@ const Task = sequelize.define('task', {
 		allowNull: false,
 	},
 	description: {
-		type: STRING,
+		type: TEXT,
 		allowNull: false,
 	}
 }

@@ -1,4 +1,4 @@
-const { INTEGER, STRING } = require("sequelize");
+const { INTEGER, STRING, TEXT } = require("sequelize");
 
 const sequelize = require('../../util/database');
 
@@ -9,12 +9,12 @@ const Module = sequelize.define('module', {
 		allowNull: false,
 		primaryKey: true,
 	},
-	name: {
+	subject: {
 		type: STRING,
 		allowNull: false,
 	},
 	description: {
-		type: STRING,
+		type: TEXT,
 		allowNull: false,
 	}
 })

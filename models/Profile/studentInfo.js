@@ -11,6 +11,11 @@ const Student = sequelize.define('student', {
 		type: STRING,
 		allowNull: false,
 	}, // todo вынести в отдельную таблицу факультеты
+	course: {
+		type: INTEGER,
+		allowNull: false,
+	},
+	
 }, 
 {timestamps: false,}
 )
