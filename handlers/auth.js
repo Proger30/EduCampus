@@ -47,6 +47,7 @@ exports.postSignup = (req, res, next) => {
 
 exports.postLogin = (req, res, next) => {
 	const {id, password} = req.body;
+	console.log(1, req.body)
 	User.findByPk(id)
 	  .then(user => {
 		if (!user) {
@@ -66,7 +67,7 @@ exports.postLogin = (req, res, next) => {
 				return res.json({
 					code: 0,
 					message: 'Successfuly authorized.',
-					data: {token},
+					payload: {token},
 				});
 			} 
 			return res.status(401).json({

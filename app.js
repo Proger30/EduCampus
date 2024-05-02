@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require('path');
 const bcrypt = require('bcryptjs')
+var cors = require('cors')
 
 require("dotenv").config({
 	override: true,
@@ -37,8 +38,13 @@ const {
 } = require('./models/Module/index.js');
 
 const app = express()
+app.use(cors()) 
 
 app.use(express.json())
+app.use((req, res, next) => {
+	console.log(req.body, req.url)
+	next()
+})
 // app.use(
 // 	session({
 // 	  secret: process.env.SECRET_KEY,
@@ -50,6 +56,7 @@ app.use(express.json())
 // 	  proxy: true,
 // 	})
 // );
+
 
 
 app.use(authRoutes)
